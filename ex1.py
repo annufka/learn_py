@@ -81,3 +81,29 @@ else:
 s += 1
 
 print("Всего ответов {}, из них правильных ответов {}".format(s, right))
+
+#Площадь прямоугольника
+a = int(input("Enter a = "))
+b = int(input("Enter b = "))
+print(a*b)
+
+#Сумма или разность
+a = int(input("a = "))
+b = int(input("b = "))
+n = input("amount or difference ")
+if n == "+":
+    print(a+b)
+else:
+    print(a-b)
+
+#все простые числа между 0 и пользовательским числом
+a = int(input())
+for i in range(1, a):
+    print(i).
+    
+#все кратные 5 числа между двумя пользовательскими числами
+a = int(input())
+b = int(input())
+for i in range(a, b):
+    if i%5 == 0:
+        print(i)
