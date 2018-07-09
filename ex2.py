@@ -61,4 +61,8 @@ for j in range(1, len(my_tuple)):
         max_el = my_tuple[j]
 print(min_el, max_el)
 
+#лист из 3 слов: ['Earth', 'Russia', 'Moscow'], соеденить все слова в единую строку, чтобы получилось: 'Earth -> Russia -> Moscow'
+my_list = ['Earth', 'Russia', 'Moscow']
+print(" -> ".join(my_list))
+
 
