@@ -65,4 +65,37 @@ print(min_el, max_el)
 my_list = ['Earth', 'Russia', 'Moscow']
 print(" -> ".join(my_list))
 
+#строку '/bin:/usr/bin:/usr/local/bin' и разбить ее в список по символу ':'
+my_str = '/bin:/usr/bin:/usr/local/bin'
+new_str = my_str.split(":")
+for i in range(len(new_str)):
+    print(new_str[i])
+    
+#все числа от 1 до 100, какие из них делятся на 7, а какие - нет
+list_7 = []
+other_list = []
+for i in range(1, 101):
+    if i%7 == 0:
+        list_7.append(i)
+    else:
+        other_list.append(i)
+print("Делятся на 7:", list_7, "Не делятся:", other_list)
 
+#матрица любых чисел 3 на 4, сначала вывести все строки, потом все столбцы
+import random
+matrix = []
+for i in range(3):
+    matrix.append([])
+    for j in range(4):
+        a = random.randint(1, 10)
+        matrix[i].append(a)
+print('строки\n')
+for row in range(3):
+    print(matrix[row])
+print('колонки\n')
+for col in range(4):
+    print('\n')
+    for row in range(len(matrix)):
+        print(matrix[row][col], end = ' ')
+        
+#список любых объектов, в цикле напечатать в консоль: объект и его индекс
