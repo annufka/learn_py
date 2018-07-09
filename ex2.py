@@ -46,3 +46,19 @@ my_dict = {}
 for i in range(6):
     my_dict.update({int(input()): input()})
 print(my_dict)
+
+#tuple из 10 любых дробных чисел, найти максимальное и минимальное значение в нем
+my_tuple = ()
+for i in range(10):
+    n = float(input())
+    my_tuple += (n, )
+min_el = my_tuple[0]
+max_el = my_tuple[0]
+for j in range(1, len(my_tuple)):
+    if my_tuple[j] < min_el:
+        min_el = my_tuple[j]
+    if my_tuple[j] > max_el:
+        max_el = my_tuple[j]
+print(min_el, max_el)
+
+
