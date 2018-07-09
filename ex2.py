@@ -40,3 +40,9 @@ for k in range(len(my_list) - 1):
         t = my_list[k]
         my_list[k] = my_list[m]
         my_list[m] = t
+
+#словарь из 5 пар: int -> str
+my_dict = {}
+for i in range(6):
+    my_dict.update({int(input()): input()})
+print(my_dict)
