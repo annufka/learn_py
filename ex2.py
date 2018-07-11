@@ -99,3 +99,21 @@ for col in range(4):
         print(matrix[row][col], end = ' ')
         
 #список любых объектов, в цикле напечатать в консоль: объект и его индекс
+my_list = []
+n = int(input("Введико количество элементов списка \n"))
+for i in range(n):
+    a = input()
+    my_list.append(a)
+for j in range(n):
+    print(j, "-й элемент списка - ", my_list[j])
+
+#список с тремя значениями 'to-delete' и нескольми любыми другими, удалить из него все значения 'to-delete'
+to_delete = ['pop', 'remove', 'del']
+to_delete.pop(0)
+to_delete.remove('remove')
+del to_delete[0]
+print(to_delete)
+
+#пройти по всем числам от 1 до 10 в обратную сторону
+for i in range(10, 0, -1):
+    print(i)
