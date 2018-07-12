@@ -122,3 +122,7 @@ funct("hello my dear. if you read this text i find my program", case = True)
 #Написать функцию, которая принимает любое количество позиционных аргументов - строк и один парматер 
 #по-умолчанию glue, который равен ':'. Соединить все строки таким образом, чтобы в результат попали 
 #все строки, длинее 3 символов. Для соединения между любых двух строк вставлять glue
+def function(*args, glue=':'):
+    print(glue.join([x for x in args if len(x) > 3]))
+
+function("kjkd", "fdkhlk", "f", "fdfgfghtr")
