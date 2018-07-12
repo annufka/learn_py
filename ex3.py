@@ -83,3 +83,16 @@ function_max(a, b, c)
 #Написать функцию, которая принимает два аргумента. Первый - список чисел, второй - булевый флаг. 
 #Если флаг действителен - возвращаем новый список с нечетными числами из входного списка, если флаг 
 #отрицателен - возвращаем новый список с четными числами из входного списка
+def funct(*my_list, YesOrNo = False):
+    my_list = list(my_list)
+    if YesOrNo == True:
+        for i in range(len(my_list) -1, -1, -1):
+            if my_list[i] % 2 != 0:
+                my_list.pop(i)
+    else:
+        for i in range(len(my_list) -1, -1, -1):
+            if my_list[i] % 2 == 0:
+                my_list.pop(i)
+    print(my_list)
+                
+funct(1, 6, 2, 50, 2, 7, 1, 3, YesOrNo = True)
