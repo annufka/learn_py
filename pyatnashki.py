@@ -14,20 +14,20 @@ def moves(move):
                         field[a][b], field[a-1][b] = field[a-1][b], field[a][b]
                     except IndexError:
                         print('Cant move up')
-                try:
-                    if move == 's':
+                if move == 's':
+                    try:
                         field[a][b], field[a+1][b] = field[a+1][b], field[a][b]
-                except IndexError:
+                    except IndexError:
                         print('Cant move down')
-                try:
-                    if move == 'a':
+                if move == 'a':
+                    try:
                         field[a][b], field[a][b-1] = field[a][b-1], field[a][b]
-                except IndexError:
+                    except IndexError:
                         print('Cant move right')
-                try:
-                    if move == 'd':
+                if move == 'd':
+                    try:
                         field[a][b], field[a][b+1] = field[a][b+1], field[a][b]
-                except IndexError:
+                    except IndexError:
                         print('Cant move left')
     
     print("\n".join(str(x) for x in field))
@@ -46,4 +46,3 @@ s = 0
 while game == True:
     s += 1
     moves(move = input())
-        
