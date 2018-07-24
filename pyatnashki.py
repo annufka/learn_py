@@ -10,11 +10,10 @@ def moves(move):
     for a in range(4):
         for b in range(4):
             if field[a][b] == 'x':
-                
                 if move == 'w':
                     try:
                         if a == 0:
-                            print('Can`t move up')
+                            raise IndexError('Can`t move up')
                         else:
                             field[a][b], field[a-1][b] = field[a-1][b], field[a][b]
                     except IndexError:
@@ -27,7 +26,7 @@ def moves(move):
                 if move == 'a':
                     try:
                         if b == 0:
-                            print('Can`t move right')
+                            raise IndexError('Can`t move up')
                         else:
                             field[a][b], field[a][b-1] = field[a][b-1], field[a][b]
                     except IndexError:
@@ -37,6 +36,7 @@ def moves(move):
                         field[a][b], field[a][b+1] = field[a][b+1], field[a][b]
                     except IndexError:
                         print('Can`t move left')
+                break
     
     print("\n".join(str(x) for x in field))
 
