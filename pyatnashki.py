@@ -1,7 +1,8 @@
 import random
 def test(field):
     my_field = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,'x']]
-    if field==my_field:
+    my_field_other = [[1,5,9,13],[2,6,10,14],[3,7,11,15],[4,8,12,'x']]
+    if field==my_field or field==my_field_other:
         game = False
         print('Win!')
 
