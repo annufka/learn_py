@@ -4,32 +4,39 @@ def test(field):
     my_field_other = [[1,5,9,13],[2,6,10,14],[3,7,11,15],[4,8,12,'x']]
     if field==my_field or field==my_field_other:
         game = False
-        print('Win!')
+        print('Win!', s)
 
 def moves(move):
     for a in range(4):
         for b in range(4):
             if field[a][b] == 'x':
+                
                 if move == 'w':
                     try:
-                        field[a][b], field[a-1][b] = field[a-1][b], field[a][b]
+                        if a == 0:
+                            print('Can`t move up')
+                        else:
+                            field[a][b], field[a-1][b] = field[a-1][b], field[a][b]
                     except IndexError:
-                        print('Cant move up')
+                        print('Can`t move up')
                 if move == 's':
                     try:
                         field[a][b], field[a+1][b] = field[a+1][b], field[a][b]
                     except IndexError:
-                        print('Cant move down')
+                        print('Can`t move down')
                 if move == 'a':
                     try:
-                        field[a][b], field[a][b-1] = field[a][b-1], field[a][b]
+                        if b == 0:
+                            print('Can`t move right')
+                        else:
+                            field[a][b], field[a][b-1] = field[a][b-1], field[a][b]
                     except IndexError:
-                        print('Cant move right')
+                        print('Can`t move right')
                 if move == 'd':
                     try:
                         field[a][b], field[a][b+1] = field[a][b+1], field[a][b]
                     except IndexError:
-                        print('Cant move left')
+                        print('Can`t move left')
     
     print("\n".join(str(x) for x in field))
 
@@ -45,5 +52,8 @@ print("\n".join(str(x) for x in field))
 game = True
 s = 0
 while game == True:
-    s += 1
-    moves(move = input())
+    try:
+        s += 1
+        moves(move = input())
+    except KeyboardInterrupt:
+        print('shutting down')
