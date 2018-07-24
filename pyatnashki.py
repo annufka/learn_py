@@ -10,34 +10,35 @@ def moves(move):
     for a in range(4):
         for b in range(4):
             if field[a][b] == 'x':
-                if move == 'w':
-                    try:
-                        if a == 0:
-                            raise IndexError('Can`t move up')
-                        else:
-                            field[a][b], field[a-1][b] = field[a-1][b], field[a][b]
-                    except IndexError:
-                        print('Can`t move up')
-                if move == 's':
-                    try:
-                        field[a][b], field[a+1][b] = field[a+1][b], field[a][b]
-                    except IndexError:
-                        print('Can`t move down')
-                if move == 'a':
-                    try:
-                        if b == 0:
-                            raise IndexError('Can`t move up')
-                        else:
-                            field[a][b], field[a][b-1] = field[a][b-1], field[a][b]
-                    except IndexError:
-                        print('Can`t move right')
-                if move == 'd':
-                    try:
-                        field[a][b], field[a][b+1] = field[a][b+1], field[a][b]
-                    except IndexError:
-                        print('Can`t move left')
-                break
-    
+                a1 = a
+                b1 = b
+    if move == 'w':
+        try:
+            if a1 == 0:
+                raise IndexError('Can`t move up')
+            else:
+                field[a1][b1], field[a1-1][b1] = field[a1-1][b1], field[a1][b1]
+        except IndexError:
+            print('Can`t move up')
+    if move == 's':
+        try:
+            field[a1][b1], field[a1+1][b1] = field[a1+1][b1], field[a1][b1]
+        except IndexError:
+            print('Can`t move down')
+    if move == 'a':
+        try:
+            if b1 == 0:
+                raise IndexError('Can`t move up')
+            else:
+                field[a1][b1], field[a1][b1-1] = field[a1][b1-1], field[a1][b1]
+        except IndexError:
+            print('Can`t move right')
+    if move == 'd':
+        try:
+            field[a1][b1], field[a1][b1+1] = field[a1][b1+1], field[a1][b1]
+        except IndexError:
+            print('Can`t move left')
+
     print("\n".join(str(x) for x in field))
 
 my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 'x']
