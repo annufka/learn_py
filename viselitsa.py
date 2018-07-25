@@ -10,7 +10,9 @@ for i in range(len(computer)):
     right_word.append('_')
 while win == False and health > 0 and health <=10:
     men = input("Your word or letter ")
-    if len(men) != 1 and men != computer:
+    if men == computer:
+        win = True
+    elif len(men) != 1 and men != computer:
         print('Enter one letter or right word')
         health -= 1
     else:
@@ -19,4 +21,9 @@ while win == False and health > 0 and health <=10:
             print("You are loser")
         else:
             print("You are right")
-            
+            for i in range(len(computer)):
+                if men == computer[i]:
+                    right_word[i] = computer[i]
+            if str(right_word) == computer:
+                win = True
+    print(right_word)
