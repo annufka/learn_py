@@ -3,23 +3,20 @@ import random
 words = ['one', 'two', 'three', 'old', 'men', 'women', 'letter', 'paper', 'elephant', 'telephone', 'rush', 'power', 'calculator', 'pen', 'notebook', 'laptop', 'science']
 a = random.randint(0, len(words))
 computer = words[a]
+right_word = []
 win = False
-life = -1
-
-def compare(men, computer):
-    if men == computer:
-        win = True
-        print("Win!")
-    else:
-        if men in computer:
-            print("Right!")
-            win = False
-        if men not in computer:
-            print("Wrong!")
-            win = False
-    return win
-
-while win == False and life < 10:
-    life += 1
+health = 10
+for i in range(len(computer)):
+    right_word.append('_')
+while win == False and health > 0 and health <=10:
     men = input("Your word or letter ")
-    compare(men, computer)
+    if len(men) != 1 and men != computer:
+        print('Enter one letter or right word')
+        health -= 1
+    else:
+        if men not in computer:
+            health -= 1
+            print("You are loser")
+        else:
+            print("You are right")
+            
