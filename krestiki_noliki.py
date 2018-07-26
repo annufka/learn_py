@@ -1,5 +1,6 @@
 #Крестики-нолики
 import random
+
 def test(win):
     #главная диагональ
     if field[0][0] == field[1][1] and field[0][0] == field[2][2]:
@@ -72,35 +73,48 @@ def test(win):
         quit()
     return win
 
+def f_empty(bool_empty):
+    for i in range(3):
+        for j in range(3):
+            if empty[0] == field[i][j]:
+                bool_empty = True
+            else:
+                bool_empty = False
+    return bool_empty
+    
 field = [['','',''],['','',''],['','','']]
 empty = ['']
 user, computer= 'o', 'x'
 win = False
+bool_empty = True
 
 while win == False:
-#проверка на наличие пустых полей
-    for i in range(3):
-        for j in range(3):
-            if empty[0] == field[i][j]:
-            
-                try:
-                    a_user, b_user = int(input()), int(input())
-                except ValueError:
-                    print('Вы не ввели значение')
-                    a_user, b_user = int(input()), int(input())
-                field[a_user][b_user] = user
-                test(win)
-                a_computer, b_computer = random.randint(0, 2), random.randint(0, 2) 
+    f_empty(bool_empty)
+    while bool_empty == True:
+        try:
+            a_user, b_user = int(input()), int(input())
+        except ValueError:
+            print('You haven`t entered some value')
+            a_user, b_user = int(input()), int(input())
+        if empty[0] == field[a_user][b_user]:
+            field[a_user][b_user] = user
+            test(win)
+        else:
+            while empty[0] != field[a_user][b_user]:
+                a_user, b_user = int(input()), int(input())
+                if empty[0] == field[a_user][b_user]:
+                    field[a_user][b_user] = user
+                    test(win)           
+        a_computer, b_computer = random.randint(0, 2), random.randint(0, 2) 
+        if empty[0] == field[a_computer][b_computer]:
+            field[a_computer][b_computer] = computer
+            test(win)
+        else:
+            while empty[0] != field[a_computer][b_computer]:
+                a_computer, b_computer = random.randint(0, 2), random.randint(0, 2)
                 if empty[0] == field[a_computer][b_computer]:
                     field[a_computer][b_computer] = computer
-                    test(win)
-                else:
-                    while empty[0] != field[a_computer][b_computer]:
-                        a_computer, b_computer = random.randint(0, 2), random.randint(0, 2)
-                        if empty[0] == field[a_computer][b_computer]:
-                            field[a_computer][b_computer] = computer
-                            test(win)
-                
-                print("\n".join(str(x) for x in field))
-                
+                    test(win)           
+        print("\n".join(str(x) for x in field))
+         
 print("Game over!")
