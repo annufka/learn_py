@@ -88,17 +88,21 @@ zm(int(input()))
 Формат вывода:
 9 строк, содержащих цифры, записанные в указанном в задании формате.
 '''
+class Numbers(object):
+    def One(self, i):
+        pass
 numbers = input()
 n = len(numbers) * 4 + len(numbers)
-lsd = [[None] * n for _ in range(n)]
-for i in range(n):
-    for j in range(9):
-        if i == 0 or i ==-1:
-            if j == 0 or j ==-1:
-                lsd[i][j] ='x'
+lsd = [[None] * n for _ in range(9)]
+for i in range(9):
+    if i == 0 or i == 9:
+        for j in range(n):
+            if j == 0 or j == n-1:
+                lsd[i][j] = 'x'
             else:
-                lsd[i][j] ='|'
-        else:
-            if j == 0 or j ==-1:
-                lsd[i][j] ='-'
-            else:
+                lsd[i][j] = '-'
+    if i != 0 or i != 9:
+        
+        
+       
+print("\n".join(str(x) for x in lsd))
