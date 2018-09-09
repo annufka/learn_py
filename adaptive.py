@@ -89,20 +89,40 @@ zm(int(input()))
 9 строк, содержащих цифры, записанные в указанном в задании формате.
 '''
 class Numbers(object):
-    def One(self, i):
-        pass
+  def One(self, i):
+    pass
+  def Two(self, i):
+    pass
+  def Three(self, i):
+    pass
+  def Four(self, i):
+    pass
+  def Five(self, i):
+    pass
+  def Six(self, i):
+    pass
+  def Seven(self, i):
+    pass
+  def Eight(self, i):
+    pass
+  def Nine(self, i):
+    pass
+  def Ziro(self, i):
+    pass
 numbers = input()
-n = len(numbers) * 4 + len(numbers)
+n = len(numbers) * 4 + len(numbers) + 1
 lsd = [[None] * n for _ in range(9)]
 for i in range(9):
-    if i == 0 or i == 9:
-        for j in range(n):
-            if j == 0 or j == n-1:
-                lsd[i][j] = 'x'
-            else:
-                lsd[i][j] = '-'
-    if i != 0 or i != 9:
-        
-        
+    for j in range(n):
+      if i == 0 or i == 8:
+        if (j == 0 or j == n-1) and lsd[i][j] == None:
+          lsd[i][j] = 'x'
+        if (j != 0 or j != n-1) and lsd[i][j] == None:
+          lsd[i][j] = '-'
+      if i != 0 or i != 8:
+        if (j == 0 or j == n-1) and lsd[i][j] == None:
+          lsd[i][j] = '|'
+        if (j != 0 or j != n-1) and lsd[i][j] == None:
+          lsd[i][j] = None          
        
 print("\n".join(str(x) for x in lsd))
