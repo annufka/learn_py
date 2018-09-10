@@ -89,29 +89,43 @@ zm(int(input()))
 9 строк, содержащих цифры, записанные в указанном в задании формате.
 '''
 class Numbers(object):
-  def One(self, i):
+  def One(self, i, j):
+    for a in range(1, 7):
+      for b in range(j, j+3):
+        lsd[a][b] = ' '
+    b += 1
+    for a in range(1, 7):
+      if a == 1 or a == 4 or a == 7:
+        lsd[a][b] = ' '
+      else:
+        lsd[a][b] = '|'
+    return lsd[a][b]
+
+
+  def Two(self, i, j):
     pass
-  def Two(self, i):
+  def Three(self, i, j):
     pass
-  def Three(self, i):
+  def Four(self, i, j):
     pass
-  def Four(self, i):
+  def Five(self, i, j):
     pass
-  def Five(self, i):
+  def Six(self, i, j):
     pass
-  def Six(self, i):
+  def Seven(self, i, j):
     pass
-  def Seven(self, i):
+  def Eight(self, i, j):
     pass
-  def Eight(self, i):
+  def Nine(self, i, j):
     pass
-  def Nine(self, i):
+  def Zero(self, i, j):
     pass
-  def Ziro(self, i):
-    pass
+
+
 numbers = input()
 n = len(numbers) * 4 + len(numbers) + 1
 lsd = [[None] * n for _ in range(9)]
+k = 0
 for i in range(9):
     for j in range(n):
       if i == 0 or i == 8:
@@ -123,6 +137,38 @@ for i in range(9):
         if (j == 0 or j == n-1) and lsd[i][j] == None:
           lsd[i][j] = '|'
         if (j != 0 or j != n-1) and lsd[i][j] == None:
-          lsd[i][j] = None          
+          if numbers[k] == 0:
+            a = Numbers()
+            a.Zero(i, j)
+          if numbers[k] == 1:
+            a = Numbers()
+            a.One(i, j)
+          if numbers[k] == 2:
+            a = Numbers()
+            a.Two(i, j)
+          if numbers[k] == 3:
+            a = Numbers()
+            a.Three(i, j)
+          if numbers[k] == 4:
+            a = Numbers()
+            a.Four(i, j)
+          if numbers[k] == 5:
+            a = Numbers()
+            a.Five(i, j)
+          if numbers[k] == 6:
+            a = Numbers()
+            a.Six(i, j)
+          if numbers[k] == 7:
+            a = Numbers()
+            a.Seven(i, j)
+          if numbers[k] == 8:
+            a = Numbers()
+            a.Eight(i, j)
+          if numbers[k] == 9:
+            a = Numbers()
+            a.Nine(i, j)
+          '''
+          lsd[i][j] = None 
+          '''         
        
 print("\n".join(str(x) for x in lsd))
